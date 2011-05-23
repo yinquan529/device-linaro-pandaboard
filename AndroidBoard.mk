@@ -30,11 +30,6 @@ ALL_PREBUILT += $(file)
 $(file) : $(LOCAL_PATH)/init.omap4.rc | $(ACP)
 	$(transform-prebuilt-to-target)
 
-file := $(PRODUCT_OUT)/system/etc/init.omap4.sh
-ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/init.omap4.sh | $(ACP)
-	$(transform-prebuilt-to-target)
-
 file := $(TARGET_ROOT_OUT)/initlogo.rle
 ALL_PREBUILT += $(file)
 $(file) : $(LOCAL_PATH)/initlogo.rle | $(ACP)
