@@ -16,14 +16,35 @@ TARGET_NO_RECOVERY := true
 TARGET_NO_RADIOIMAGE := true
 TARGET_PROVIDES_INIT_RC := true
 BOARD_USES_GENERIC_AUDIO := false
+OMAP_ENHANCEMENT := true
+HARDWARE_OMX := false
 USE_CAMERA_STUB := true
 
-BOARD_HAVE_BLUETOOTH := false
-BOARD_HAVE_BLUETOOTH_BCM := false
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+
+WPA_SUPPLICANT_VERSION := VER_0_6_X
+BOARD_WPA_SUPPLICANT_DRIVER := WEXT
+WIFI_DRIVER_MODULE_PATH := "/system/modules/wl12xx_sdio.ko"
+WIFI_DRIVER_MODULE_NAME := "wl12xx_sdio"
 
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
+
+ifdef HARDWARE_OMX
+OMX_VENDOR := ti
+OMX_VENDOR_INCLUDES := \
+   hardware/ti/omx/system/src/openmax_il/omx_core/inc \
+   hardware/ti/omx/image/src/openmax_il/jpeg_enc/inc
+OMX_VENDOR_WRAPPER := TI_OMX_Wrapper
+BOARD_OPENCORE_LIBRARIES := libOMX_Core
+BOARD_OPENCORE_FLAGS := -DHARDWARE_OMX=1
+endif
+
+ifdef OMAP_ENHANCEMENT
+COMMON_GLOBAL_CFLAGS += -DOMAP_ENHANCEMENT -DTARGET_OMAP4
+endif
 
 # Enable NEON feature
 TARGET_ARCH_VARIANT := armv7-a-neon

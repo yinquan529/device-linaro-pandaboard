@@ -13,4 +13,5 @@
 # limitations under the License.
 
 PRODUCT_COPY_FILES := \
-    device/linaro/beagleboard/vold.fstab:system/etc/vold.fstab
+    device/linaro/pandaboard/vold.fstab:system/etc/vold.fstab \
+    device/linaro/pandaboard/egl.cfg:system/lib/egl/egl.cfg
