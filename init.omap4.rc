@@ -125,6 +125,7 @@ on boot
     insmod /system/modules/hci_uart.ko
     insmod /system/modules/rfcomm.ko
     insmod /system/modules/btwilink.ko
+    insmod /system/modules/gator.ko
 
     chown system  system /sys/class/rfkill/rfkill0/type
     chown system  system /sys/class/rfkill/rfkill0/state
@@ -155,3 +156,9 @@ service dhcpcd_wlan0 /system/bin/dhcpcd -d -B wlan0
 service uim /system/bin/uim
     user root
     oneshot
+
+#userspace daemon needed for gator
+service gatord /system/bin/gatord
+    user root
+    oneshot
+
