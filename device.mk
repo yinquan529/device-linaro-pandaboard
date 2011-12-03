@@ -13,5 +13,12 @@
 # limitations under the License.
 
 PRODUCT_COPY_FILES := \
-    device/linaro/pandaboard/vold.fstab:system/etc/vold.fstab \
-    device/linaro/pandaboard/egl.cfg:system/lib/egl/egl.cfg
+	device/linaro/common/init.rc:root/init.rc \
+	device/linaro/pandaboard/vold.fstab:system/etc/vold.fstab \
+	device/linaro/pandaboard/init.omap4pandaboard.rc:root/init.omap4pandaboard.rc \
+	device/linaro/pandaboard/init.omap4pandaboard.usb.rc:root/init.omap4pandaboard.usb.rc \
+	device/linaro/pandaboard/ueventd.omap4pandaboard.rc:root/ueventd.omap4pandaboard.rc \
+	device/linaro/pandaboard/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+	device/linaro/pandaboard/media_profiles.xml:system/etc/media_profiles.xml \
+	frameworks/base/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
+	frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml

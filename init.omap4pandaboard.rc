@@ -1,3 +1,5 @@
+import init.omap4pandaboard.usb.rc
+
 on init
     # mount debugfs
     mount debugfs /sys/kernel/debug /sys/kernel/debug
