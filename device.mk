@@ -22,3 +22,23 @@ PRODUCT_COPY_FILES := \
 	device/linaro/pandaboard/media_profiles.xml:system/etc/media_profiles.xml \
 	frameworks/base/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
 	frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
+
+PRODUCT_PACKAGES := \
+        make_ext4fs \
+        com.android.future.usb.accessory
+
+PRODUCT_PROPERTY_OVERRIDES := \
+        hwui.render_dirty_regions=false
+
+PRODUCT_CHARACTERISTICS := tablet,nosdcard
+
+DEVICE_PACKAGE_OVERLAYS := \
+    device/ti/panda/overlay
+
+PRODUCT_TAGS += dalvik.gc.type-precise
+
+$(call inherit-product, frameworks/base/build/tablet-dalvik-heap.mk)
+
+# Filesystem management tools
+PRODUCT_PACKAGES += \
+        make_ext4fs
