@@ -162,5 +162,4 @@ service uim /system/bin/uim
 #userspace daemon needed for gator
 service gatord /system/bin/gatord
     user root
-    oneshot
 
