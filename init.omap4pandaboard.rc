@@ -136,30 +136,30 @@ on boot
 
 # Initialize the SGX driver
 service pvrsrvinit /system/bin/pvrsrvinit
+    class main
     user root
     oneshot
 
-service faketsd /system/bin/faketsd
-    user bluetooth
-    group bluetooth
-    oneshot
-
 service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf -dd
+    class main
     group system wifi inet
     disabled
     oneshot
 
 service dhcpcd_wlan0 /system/bin/dhcpcd -d -B wlan0
+    class main
     group system dhcp
     disabled
     oneshot
 
 #userspace daemon needed for bluetooth
 service uim /system/bin/uim
+    class main
     user root
     oneshot
 
 #userspace daemon needed for gator
 service gatord /system/bin/gatord
+    class main
     user root
 
