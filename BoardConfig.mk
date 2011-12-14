@@ -66,4 +66,4 @@ USE_OPENGL_RENDERER := true
 TARGET_EXTRA_CFLAGS += $(call cc-option,-mtune=cortex-a9,$(call cc-option,-mtune=cortex-a8)) $(call cc-option,-mcpu=cortex-a9,$(call cc-option,-mcpu=cortex-a8))
 
 # ARMs gator (DS-5)
-#TARGET_USE_GATOR:= true
+TARGET_USE_GATOR:= true
