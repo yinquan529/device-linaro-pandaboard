@@ -43,3 +43,7 @@ $(call inherit-product, frameworks/base/build/tablet-dalvik-heap.mk)
 # Filesystem management tools
 PRODUCT_PACKAGES += \
         make_ext4fs
+
+PRODUCT_PROPERTY_OVERRIDES += \
+        ro.nohardwaregfx=true
+
