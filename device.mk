@@ -21,8 +21,7 @@ PRODUCT_COPY_FILES := \
 	device/linaro/pandaboard/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
 	device/linaro/pandaboard/media_profiles.xml:system/etc/media_profiles.xml \
 	frameworks/base/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
-	frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-	device/linaro/common/wallpaper_info.xml:data/system/wallpaper_info.xml
+	frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
 
 PRODUCT_PACKAGES := \
         make_ext4fs \
