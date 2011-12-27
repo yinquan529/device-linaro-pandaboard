@@ -39,6 +39,10 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 
 $(call inherit-product, frameworks/base/build/tablet-dalvik-heap.mk)
 
+ifeq ($(TARGET_NO_HARDWAREGFX),1)
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.nohardwaregfx=true
-
+else
+PRODUCT_PACKAGES := \
+        hwcomposer.omap4
+endif
