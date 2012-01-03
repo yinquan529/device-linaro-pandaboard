@@ -25,7 +25,8 @@ PRODUCT_COPY_FILES := \
 
 PRODUCT_PACKAGES := \
         make_ext4fs \
-        com.android.future.usb.accessory
+        com.android.future.usb.accessory \
+        audio.primary.omap4
 
 PRODUCT_PROPERTY_OVERRIDES := \
         hwui.render_dirty_regions=false
