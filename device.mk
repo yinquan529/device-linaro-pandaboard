@@ -44,6 +44,6 @@ ifeq ($(TARGET_NO_HARDWAREGFX),1)
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.nohardwaregfx=true
 else
-PRODUCT_PACKAGES := \
+PRODUCT_PACKAGES += \
         hwcomposer.omap4
 endif
