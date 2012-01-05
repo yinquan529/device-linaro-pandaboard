@@ -21,7 +21,8 @@ PRODUCT_COPY_FILES := \
 	device/linaro/pandaboard/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
 	device/linaro/pandaboard/media_profiles.xml:system/etc/media_profiles.xml \
 	frameworks/base/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
-	frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
+	frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+        device/ti/proprietary-open/wifi/omap4/LICENCE.ti-connectivity:root/LICENCE.ti-connectivity
 
 PRODUCT_PACKAGES := \
         make_ext4fs \
@@ -39,6 +40,7 @@ DEVICE_PACKAGE_OVERLAYS := \
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 $(call inherit-product, frameworks/base/build/tablet-dalvik-heap.mk)
+$(call inherit-product-if-exists, device/ti/proprietary-open/install-binaries.mk)
 
 ifeq ($(TARGET_NO_HARDWAREGFX),1)
 PRODUCT_PROPERTY_OVERRIDES += \

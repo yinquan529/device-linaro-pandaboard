@@ -24,10 +24,12 @@ USE_CAMERA_STUB := true
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
-#WPA_SUPPLICANT_VERSION := VER_0_6_X
-#BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-WIFI_DRIVER_MODULE_PATH := "/system/modules/wl12xx_sdio.ko"
-WIFI_DRIVER_MODULE_NAME := "wl12xx_sdio"
+BOARD_WPA_SUPPLICANT_DRIVER      := WEXT
+WPA_SUPPLICANT_VERSION           := VER_0_8_X
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := private_lib_driver_cmd
+WIFI_DRIVER_MODULE_PATH          := "/system/modules/wl12xx_sdio.ko"
+WIFI_DRIVER_MODULE_NAME          := "wl12xx_sdio"
+WIFI_FIRMWARE_LOADER             := ""
 
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
