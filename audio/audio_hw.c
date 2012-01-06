@@ -501,6 +501,8 @@ static int start_output_stream(struct pandaboard_stream_out *out)
     /* S/PDIF takes priority over HDMI audio. In the case of multiple
      * devices, this will cause use of S/PDIF or HDMI only */
     out->config.rate = MM_FULL_POWER_SAMPLING_RATE;
+    /* FIXME Forcing audio to onboard lineout until HDMI issue is fixed */
+#if 0
     if (adev->devices & AUDIO_DEVICE_OUT_DGTL_DOCK_HEADSET)
         port = PORT_SPDIF;
     else if(adev->devices & AUDIO_DEVICE_OUT_AUX_DIGITAL) {
@@ -508,6 +510,7 @@ static int start_output_stream(struct pandaboard_stream_out *out)
         port = PORT_HDMI;
         out->config.rate = MM_LOW_POWER_SAMPLING_RATE;
     }
+#endif
     /* default to low power: will be corrected in out_write if necessary before first write to
      * tinyalsa.
      */
