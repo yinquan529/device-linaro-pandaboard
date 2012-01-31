@@ -43,6 +43,9 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 $(call inherit-product, frameworks/base/build/tablet-dalvik-heap.mk)
 $(call inherit-product-if-exists, device/ti/proprietary-open/install-binaries.mk)
 
+PRODUCT_PROPERTY_OVERRIDES += \
+        ro.opengles.version=131072
+
 ifeq ($(TARGET_NO_HARDWAREGFX),1)
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.nohardwaregfx=true
