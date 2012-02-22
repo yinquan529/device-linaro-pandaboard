@@ -65,7 +65,7 @@ BOARD_EGL_CFG := device/ti/panda/egl.cfg
 USE_OPENGL_RENDERER := true
 
 # PandaBoard uses an OMAP4 -- Cortex A9
-TARGET_EXTRA_CFLAGS += $(call cc-option,"-march=armv7-a -mtune=cortex-a9",$(call cc-option,"-march=armv7-a -mtune=cortex-a8")) $(call cc-option,"-march=armv7-a -mcpu=cortex-a9",$(call cc-option,"-march=armv7-a -mcpu=cortex-a8"))
+TARGET_EXTRA_CFLAGS += $(call cc-option,-march=armv7-a -mtune=cortex-a9,$(call cc-option,-march=armv7-a -mtune=cortex-a8)) $(call cc-option,-march=armv7-a -mcpu=cortex-a9,$(call cc-option,-march=armv7-a -mcpu=cortex-a8))
 
 # ARMs gator (DS-5)
 TARGET_USE_GATOR:= true
