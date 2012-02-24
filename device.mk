@@ -23,12 +23,14 @@ PRODUCT_COPY_FILES := \
 	frameworks/base/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
 	frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
 	frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-        device/ti/proprietary-open/wifi/omap4/LICENCE.ti-connectivity:root/LICENCE.ti-connectivity
+        device/ti/proprietary-open/wifi/omap4/LICENCE.ti-connectivity:root/LICENCE.ti-connectivity \
+	device/linaro/common/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml
 
 PRODUCT_PACKAGES := \
         make_ext4fs \
         com.android.future.usb.accessory \
         audio.primary.omap4 \
+        uim \
         camera.omap4
 
 PRODUCT_PROPERTY_OVERRIDES := \
