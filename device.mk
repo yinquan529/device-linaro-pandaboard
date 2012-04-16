@@ -24,7 +24,8 @@ PRODUCT_COPY_FILES := \
 	frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
 	frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
         device/ti/proprietary-open/wifi/omap4/LICENCE.ti-connectivity:root/LICENCE.ti-connectivity \
-	device/linaro/common/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml
+	device/linaro/common/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
+	device/linaro/tinyhal/pandaboard.xml:system/etc/sound/pandaboard.xml
 
 PRODUCT_PACKAGES := \
         make_ext4fs \
