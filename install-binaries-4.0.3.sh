@@ -21,7 +21,7 @@ done
 mkdir -p /tmp/binaries
 cd /tmp/binaries/
 wget --no-check-certificate $DL_URL
-tar -zxvf imgtec-panda-iml74k-cfb7bdad.tgz
+tar -zxvf `basename $DL_URL`
 sh extract-imgtec-panda.sh
 sudo mount $device /mnt/
 sudo mkdir -p /mnt/vendor/bin/
