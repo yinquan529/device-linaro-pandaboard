@@ -9,14 +9,17 @@ err_handle() {
 
 trap 'err_handle' ERR
 
-for i in `cat /proc/partitions | awk '{print $4}' |grep -i 'sd[a-z][1-9]\|mmcblk[0-9]p[1-9]'`
-do
-    label=`sudo e2label /dev/$i 2>/dev/null`
-    if [ "$label" = "system" ]; then
-        device="/dev/$i"
-    fi
-done
-[ -b "$device" ] || { echo "Failed to find system partition" && exit 1; }
+device="$1"
+if [ -z "$device" ]; then
+    for i in `cat /proc/partitions | awk '{print $4}' |grep -i 'sd[a-z][1-9]\|mmcblk[0-9]p[1-9]'`
+    do
+        label=`sudo e2label /dev/$i 2>/dev/null`
+        if [ "$label" = "system" ]; then
+            device="/dev/$i"
+        fi
+    done
+    [ -b "$device" ] || { echo "Failed to find system partition" && exit 1; }
+fi
 
 mkdir -p /tmp/binaries
 cd /tmp/binaries/
