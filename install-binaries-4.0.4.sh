@@ -1,6 +1,9 @@
 #!/bin/sh
 
 DL_URL='https://dl.google.com/dl/android/aosp/imgtec-panda-imm76i-67545da7.tgz'
+if [ -e "$(realpath $(dirname $0))/`basename $DL_URL`" ]; then
+	DL_URL="$(realpath $(dirname $0))/`basename $DL_URL`"
+fi
 
 err_handle() {
   echo "Error, please try again"
@@ -23,8 +26,12 @@ trap 'err_handle' ERR
 
 mkdir -p /tmp/binaries
 cd /tmp/binaries/
-wget --no-check-certificate $DL_URL
-tar -zxvf `basename $DL_URL`
+if [ -e "$DL_URL" ]; then
+	tar xf "$DL_URL"
+else
+	wget --no-check-certificate $DL_URL
+	tar -zxvf `basename $DL_URL`
+fi
 sh extract-imgtec-panda.sh
 sudo mount $device /mnt/
 sudo mkdir -p /mnt/vendor/bin/
