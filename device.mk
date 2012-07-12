@@ -44,7 +44,7 @@ DEVICE_PACKAGE_OVERLAYS := \
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-$(call inherit-product, frameworks/base/build/tablet-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
 $(call inherit-product-if-exists, device/ti/proprietary-open/install-binaries.mk)
 
 PRODUCT_PROPERTY_OVERRIDES += \
