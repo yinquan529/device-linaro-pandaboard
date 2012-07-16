@@ -72,3 +72,6 @@ TARGET_EXTRA_CFLAGS += $(call cc-ifversion, -ge, 46, $(call cc-option,-mtune=cor
 
 # ARMs gator (DS-5)
 TARGET_USE_GATOR:= true
+
+# Build uImage and uInitrd instead of kernel and ramdisk.img
+TARGET_BOOTLOADER_TYPE := uboot
