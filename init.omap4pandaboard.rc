@@ -128,7 +128,13 @@ on boot
     chown system  system /sys/class/rfkill/rfkill0/type
     chown system  system /sys/class/rfkill/rfkill0/state
 
+# TODO "wl1273-core" is needed for 3.2 kernel.Remove it once we stop
+# supporting 3.2 kernel
     insmod /system/modules/wl1273-core.ko
+    insmod /system/modules/lib80211.ko
+    insmod /system/modules/cfg80211.ko
+    insmod /system/modules/mac80211.ko
+    insmod /system/modules/wlcore.ko
     insmod /system/modules/wl12xx.ko
 
 # Initialize the SGX driver
