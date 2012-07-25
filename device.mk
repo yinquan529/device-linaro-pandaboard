@@ -50,6 +50,13 @@ $(call inherit-product-if-exists, device/ti/proprietary-open/install-binaries.mk
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.opengles.version=131072
 
+# 3.4 kernel doesn't have hardware acceleration. We are enabling the
+# support for software graphics by checking if the kernel config is
+# set for 3.4 kernel .TODO: Revisit when 3.4+ kernel supports SGX
+ifneq ($(wildcard $(TOP)/kernel/arch/arm/configs/omap4plus_defconfig),)
+TARGET_NO_HARDWAREGFX=1
+endif
+
 ifeq ($(TARGET_NO_HARDWAREGFX),1)
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.nohardwaregfx=true
