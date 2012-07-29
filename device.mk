@@ -57,3 +57,7 @@ else
 PRODUCT_PACKAGES += \
         hwcomposer.omap4
 endif
+
+PRODUCT_PROPERTY_OVERRIDES += \
+        sf.force_sw_vsync=1 \
+        ro.sf.lcd_density=160
