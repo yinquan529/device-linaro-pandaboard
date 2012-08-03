@@ -7,8 +7,10 @@ TARGET_BOARD_PLATFORM := omap4
 TARGET_NO_BOOTLOADER := true # Uses u-boot instead 
 TARGET_NO_KERNEL := false
 DEVICE_TREES := omap4-panda:board.dtb
-ifeq ($(KERNEL_CONFIG),)
+ifneq ($(wildcard $(TOP)/kernel/arch/arm/configs/android_omap4_defconfig),)
 KERNEL_CONFIG := android_omap4_defconfig
+else
+KERNEL_CONFIG := omap4plus_defconfig
 endif
 TARGET_USE_UBOOT := true
 UBOOT_CONFIG := omap4_panda_config
@@ -30,8 +32,15 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_WPA_SUPPLICANT_DRIVER      := WEXT
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := private_lib_driver_cmd
+# Below condition allows us to check if the image is being built for
+# 3.4+ kernel.
+ifeq ($(KERNEL_CONFIG),omap4plus_defconfig)
+WIFI_DRIVER_MODULE_PATH          := "/system/modules/wlcore_sdio.ko"
+WIFI_DRIVER_MODULE_NAME          := "wlcore_sdio"
+else
 WIFI_DRIVER_MODULE_PATH          := "/system/modules/wl12xx_sdio.ko"
 WIFI_DRIVER_MODULE_NAME          := "wl12xx_sdio"
+endif
 WIFI_FIRMWARE_LOADER             := ""
 
 TARGET_CPU_ABI := armeabi-v7a
