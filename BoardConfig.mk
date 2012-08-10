@@ -8,8 +8,10 @@ TARGET_NO_BOOTLOADER := true # Uses u-boot instead
 TARGET_NO_KERNEL := false
 DEVICE_TREES := omap4-panda:board.dtb
 ifneq ($(wildcard $(TOP)/kernel/arch/arm/configs/android_omap4_defconfig),)
+BOARD_EGL_CFG := device/linaro/pandaboard/egl.cfg
 KERNEL_CONFIG := android_omap4_defconfig
 else
+BOARD_EGL_CFG := device/linaro/pandaboard/softwaregfx/egl.cfg
 KERNEL_CONFIG := omap4plus_defconfig
 endif
 TARGET_USE_UBOOT := true
@@ -69,8 +71,6 @@ EXTRA_PACKAGE_MANAGEMENT := false
 
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
-
-BOARD_EGL_CFG := device/ti/panda/egl.cfg
 
 #BOARD_USES_HGL := true
 #BOARD_USES_OVERLAY := true
