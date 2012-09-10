@@ -14,7 +14,6 @@
 
 PRODUCT_COPY_FILES := \
 	device/linaro/common/init.partitions.rc:root/init.partitions.rc \
-	device/linaro/pandaboard/vold.fstab:system/etc/vold.fstab \
 	device/linaro/pandaboard/init.omap4pandaboard.rc:root/init.omap4pandaboard.rc \
 	device/linaro/pandaboard/init.omap4pandaboard.usb.rc:root/init.omap4pandaboard.usb.rc \
 	device/linaro/pandaboard/ueventd.omap4pandaboard.rc:root/ueventd.omap4pandaboard.rc \
@@ -54,7 +53,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # support for software graphics by checking if the kernel config is
 # set for 3.4 kernel .TODO: Revisit when 3.4+ kernel supports SGX
 ifneq ($(wildcard $(TOP)/kernel/arch/arm/configs/omap4plus_defconfig),)
+PRODUCT_COPY_FILES += \
+	device/linaro/pandaboard/vold.fstab_tracking:system/etc/vold.fstab
 TARGET_NO_HARDWAREGFX=1
+else
+PRODUCT_COPY_FILES += \
+	device/linaro/pandaboard/vold.fstab:system/etc/vold.fstab
 endif
 
 ifeq ($(TARGET_NO_HARDWAREGFX),1)
