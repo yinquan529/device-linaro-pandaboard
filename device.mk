@@ -59,6 +59,7 @@ TARGET_NO_HARDWAREGFX=1
 else
 PRODUCT_COPY_FILES += \
 	device/linaro/pandaboard/vold.fstab:system/etc/vold.fstab
+    $(call inherit-product, hardware/ti/omap4xxx/omap4.mk)
 endif
 
 ifeq ($(TARGET_NO_HARDWAREGFX),1)
