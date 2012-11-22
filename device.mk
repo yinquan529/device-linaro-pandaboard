@@ -13,8 +13,9 @@
 # limitations under the License.
 
 PRODUCT_COPY_FILES := \
+	device/linaro/common/init.partitions.rc:root/init.partitions.rc \
+	device/linaro/common/fstab.partitions:root/fstab.partitions \
 	device/linaro/pandaboard/init.omap4pandaboard.rc:root/init.omap4pandaboard.rc \
-	device/linaro/pandaboard/fstab.omap4pandaboard:root/fstab.omap4pandaboard \
 	device/linaro/pandaboard/init.omap4pandaboard.usb.rc:root/init.omap4pandaboard.usb.rc \
 	device/linaro/pandaboard/ueventd.omap4pandaboard.rc:root/ueventd.omap4pandaboard.rc \
 	device/linaro/common/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
