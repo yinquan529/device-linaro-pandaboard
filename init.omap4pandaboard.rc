@@ -1,16 +1,24 @@
 import init.omap4pandaboard.usb.rc
 
 on early-init
-    export EXTERNAL_STORAGE /storage/sdcard0
-    mkdir /storage 0050 system sdcard_r
-    mkdir /storage/sdcard0 0000 system system
-    # for backwards compatibility
-    symlink /storage/sdcard0 /sdcard
-    symlink /storage/sdcard0 /mnt/sdcard
-
-on init
     # mount debugfs
     mount debugfs /sys/kernel/debug /sys/kernel/debug
+
+on init
+    # See storage config details at http://source.android.com/tech/storage/
+    mkdir /mnt/shell/emulated 0700 shell shell
+    mkdir /storage/emulated 0555 root root
+
+    export EXTERNAL_STORAGE /storage/emulated/legacy
+    export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
+    export EMULATED_STORAGE_TARGET /storage/emulated
+
+    # Support legacy paths
+    symlink /storage/emulated/legacy /sdcard
+    symlink /storage/emulated/legacy /mnt/sdcard
+    symlink /storage/emulated/legacy /storage/sdcard0
+    symlink /mnt/shell/emulated/0 /storage/emulated/legacy
+
 
 # power management
 # Enable off mode by default
@@ -21,10 +29,20 @@ on init
     write /sys/kernel/debug/pm_debug/smartreflex/sr_iva/autocomp 1
     write /sys/kernel/debug/pm_debug/smartreflex/sr_mpu/autocomp 1
 
+on post-fs-data
+    mkdir /data/media 0770 media_rw media_rw
+
 on boot
     setprop ro.build.product omap4sdp
     setprop ro.product.device omap4sdp
     setprop wifi.interface wlan0
+
+on fs
+    mount_all /fstab.omap4pandaboard
+
+# virtual sdcard daemon running as media_rw (1023)
+service sdcard /system/bin/sdcard /data/media /mnt/shell/emulated 1023 1023
+    class late_start
 
     # create dhcpcd dir
     mkdir /data/misc/dhcp 0770 dhcp dhcp

@@ -13,8 +13,8 @@
 # limitations under the License.
 
 PRODUCT_COPY_FILES := \
-	device/linaro/common/init.partitions.rc:root/init.partitions.rc \
 	device/linaro/pandaboard/init.omap4pandaboard.rc:root/init.omap4pandaboard.rc \
+	device/linaro/pandaboard/fstab.omap4pandaboard:root/fstab.omap4pandaboard \
 	device/linaro/pandaboard/init.omap4pandaboard.usb.rc:root/init.omap4pandaboard.usb.rc \
 	device/linaro/pandaboard/ueventd.omap4pandaboard.rc:root/ueventd.omap4pandaboard.rc \
 	device/linaro/common/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
@@ -71,5 +71,5 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
-        sf.force_sw_vsync=1 \
+        debug.sf.no_hw_vsync=1 \
         ro.sf.lcd_density=160
