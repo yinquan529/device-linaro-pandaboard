@@ -40,7 +40,7 @@ PRODUCT_PROPERTY_OVERRIDES := \
 PRODUCT_CHARACTERISTICS := tablet,nosdcard
 
 DEVICE_PACKAGE_OVERLAYS := \
-    device/ti/panda/overlay
+    device/linaro/pandaboard/overlay
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
