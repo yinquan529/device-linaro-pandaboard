@@ -31,7 +31,9 @@ USE_CAMERA_STUB := true
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
-BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
+# Enabling Wifi on Pandaboard 4460
+#BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
+BOARD_WPA_SUPPLICANT_DRIVER      := WEXT
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := private_lib_driver_cmd
 # Below condition allows us to check if the image is being built for
