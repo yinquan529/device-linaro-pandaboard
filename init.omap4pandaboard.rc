@@ -1,9 +1,15 @@
 import init.omap4pandaboard.usb.rc
 
 on early-init
+    export EXTERNAL_STORAGE /mnt/sdcard
+    mkdir /storage 0050 system sdcard_r
+    # for backwards compatibility
+    symlink /mnt/sdcard /storage/sdcard0
+
     # mount debugfs
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
+on init
 # power management
 # Enable off mode by default
     #write /sys/kernel/debug/pm_debug/enable_off_mode 1
@@ -13,10 +19,16 @@ on early-init
     write /sys/kernel/debug/pm_debug/smartreflex/sr_iva/autocomp 1
     write /sys/kernel/debug/pm_debug/smartreflex/sr_mpu/autocomp 1
 
+on post-fs-data
+    mkdir /data/media 0770 media_rw media_rw
+
 on boot
     setprop ro.build.product omap4sdp
     setprop ro.product.device omap4sdp
     setprop wifi.interface wlan0
+
+on fs
+    mount_all /fstab.omap4pandaboard
 
     # create dhcpcd dir
     mkdir /data/misc/dhcp 0770 dhcp dhcp
