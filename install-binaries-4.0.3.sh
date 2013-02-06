@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DL_URL='https://dl.google.com/dl/android/aosp/imgtec-panda-iml74k-cfb7bdad.tgz'
+DL_URL='https://dl.google.com/dl/android/aosp/imgtec-panda-20111216-cfb7bdad.tgz'
 
 err_handle() {
   echo "Error, please try again"

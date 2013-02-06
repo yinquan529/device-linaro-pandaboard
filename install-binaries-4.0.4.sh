@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DL_URL='https://dl.google.com/dl/android/aosp/imgtec-panda-imm76i-67545da7.tgz'
+DL_URL='https://dl.google.com/dl/android/aosp/imgtec-panda-20120430-67545da7.tgz'
 if [ -e "$(realpath $(dirname $0))/`basename $DL_URL`" ]; then
 	DL_URL="$(realpath $(dirname $0))/`basename $DL_URL`"
 fi
