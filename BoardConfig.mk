@@ -8,7 +8,7 @@ TARGET_NO_BOOTLOADER := true # Uses u-boot instead
 TARGET_NO_KERNEL := false
 TARGET_HWPACK_CONFIG := device/linaro/pandaboard/config
 DEVICE_TREES := omap4-panda:board.dtb
-ifneq ($(wildcard $(TOP)/kernel/arch/arm/configs/android_omap4_defconfig),)
+ifneq ($(wildcard $(TOP)/kernel/linaro/pandaboard/arch/arm/configs/android_omap4_defconfig),)
 BOARD_EGL_CFG := device/linaro/pandaboard/egl.cfg
 KERNEL_CONFIG := android_omap4_defconfig
 else

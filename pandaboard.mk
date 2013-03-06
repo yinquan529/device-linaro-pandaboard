@@ -6,3 +6,5 @@ $(call inherit-product, device/linaro/pandaboard/device.mk)
 PRODUCT_BRAND := pandaboard
 PRODUCT_DEVICE := pandaboard
 PRODUCT_NAME := pandaboard
+
+TARGET_UBOOT_SOURCE ?= u-boot/linaro/u-boot-linaro-stable

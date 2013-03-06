@@ -52,7 +52,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # 3.4 kernel doesn't have hardware acceleration. We are enabling the
 # support for software graphics by checking if the kernel config is
 # set for 3.4 kernel .TODO: Revisit when 3.4+ kernel supports SGX
-ifneq ($(wildcard $(TOP)/kernel/arch/arm/configs/omap4plus_defconfig),)
+ifneq ($(wildcard $(TOP)/kernel/linaro/pandaboard/arch/arm/configs/omap4plus_defconfig),)
 PRODUCT_COPY_FILES += \
 	device/linaro/pandaboard/vold.fstab_tracking:system/etc/vold.fstab
 TARGET_NO_HARDWAREGFX=1
