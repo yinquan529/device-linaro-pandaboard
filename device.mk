@@ -43,7 +43,7 @@ DEVICE_PACKAGE_OVERLAYS := \
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-$(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
+$(call inherit-product-if-exists, frameworks/native/build/tablet-dalvik-heap.mk)
 $(call inherit-product-if-exists, device/ti/proprietary-open/install-binaries.mk)
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -59,7 +59,7 @@ TARGET_NO_HARDWAREGFX=1
 else
 PRODUCT_COPY_FILES += \
 	device/linaro/pandaboard/vold.fstab:system/etc/vold.fstab
-    $(call inherit-product, hardware/ti/omap4xxx/omap4.mk)
+    $(call inherit-product-if-exists, hardware/ti/omap4xxx/omap4.mk)
 endif
 
 ifeq ($(TARGET_NO_HARDWAREGFX),1)
