@@ -26,32 +26,14 @@ BOARD_USES_GENERIC_AUDIO := false
 BUILD_WITH_ALSA_UTILS := false
 BOARD_USES_TINY_AUDIO_HW := true
 OMAP_ENHANCEMENT := true
-HARDWARE_OMX := false
+#HARDWARE_OMX := false
 USE_CAMERA_STUB := true
 INCLUDE_PERF := 0
-
-BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_BCM := true
-
-# Enabling Wifi on Pandaboard 4460
-#BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
-BOARD_WPA_SUPPLICANT_DRIVER      := WEXT
-WPA_SUPPLICANT_VERSION           := VER_0_8_X
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := private_lib_driver_cmd
-# Below condition allows us to check if the image is being built for
-# 3.4+ kernel.
-ifeq ($(KERNEL_CONFIG),omap4plus_defconfig)
-WIFI_DRIVER_MODULE_PATH          := "/system/modules/wlcore_sdio.ko"
-WIFI_DRIVER_MODULE_NAME          := "wlcore_sdio"
-else
-WIFI_DRIVER_MODULE_PATH          := "/system/modules/wl12xx_sdio.ko"
-WIFI_DRIVER_MODULE_NAME          := "wl12xx_sdio"
-endif
-WIFI_FIRMWARE_LOADER             := ""
 
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
+TARGET_CPU_VARIANT := cortex-a9
 
 ifdef HARDWARE_OMX
 OMX_VENDOR := ti
