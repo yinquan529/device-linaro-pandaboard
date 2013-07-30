@@ -13,7 +13,7 @@
 # limitations under the License.
 
 PRODUCT_COPY_FILES := \
-	device/linaro/common/fstab.partitions:root/fstab.omap4pandaboard \
+	device/linaro/pandaboard/fstab.omap4pandaboard:root/fstab.omap4pandaboard \
 	device/linaro/pandaboard/init.omap4pandaboard.rc:root/init.omap4pandaboard.rc \
 	device/linaro/pandaboard/init.omap4pandaboard.usb.rc:root/init.omap4pandaboard.usb.rc \
 	device/linaro/pandaboard/ueventd.omap4pandaboard.rc:root/ueventd.omap4pandaboard.rc \
