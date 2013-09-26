@@ -2,7 +2,7 @@
 # 
 # Product-specific compile-time definitions.
 #
-
+include $(TOPDIR)device/linaro/common/linaro_configs.mk
 TARGET_BOARD_PLATFORM := omap4
 TARGET_NO_BOOTLOADER := true # Uses u-boot instead 
 TARGET_NO_KERNEL := false
